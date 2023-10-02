@@ -1,14 +1,70 @@
-﻿namespace Datos
+﻿using Modelos;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace Datos
 {
     public class DMateria
     {
-        private int id {  get; set; }
-        private string descripcion { get; set; }
-        
-        DMateria(int id, string descripcion)
+        public static List<Materia> GetAll()
         {
-            this.id = id;
-            this.descripcion = descripcion;
+            List<Materia> result = new List<Materia>();
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("GetAllMaterias", connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Materia materia = new Materia(Convert.ToInt32(reader["id"]), reader["descripcion"].ToString());
+                    result.Add(materia);
+                }
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return result;
+        }
+        public static void DeleteMateria(int id)
+        {
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("deleteMateria", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static void InsertMateria(string descripcion)
+        {
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("InsertMateria", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@descripcion", descripcion);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

@@ -24,9 +24,9 @@ namespace Datos
                 {
                     Alumno estudiante = new Alumno();
                         estudiante.id = Convert.ToInt32(reader["id"]);
-                    estudiante.nombre = reader["nombre"].ToString();
+                        estudiante.nombre = reader["nombre"].ToString();
                         estudiante.apellido = reader["apellido"].ToString();
-                    result.Add(estudiante);
+                        result.Add(estudiante);
                 }
                 connection.Close();
             }

@@ -31,6 +31,17 @@ namespace Negocio
                 throw;
             }
         }
+        public static void Update(int id, string descripcion)
+        {
+            try
+            {
+                DMateria.UpdateMateria(id, descripcion);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public static void Insert(string descripcion)
         {
             try

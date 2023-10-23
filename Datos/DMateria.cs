@@ -48,6 +48,25 @@ namespace Datos
                 throw;
             }
         }
+        public static void UpdateMateria (int id, string descripcion)
+        {
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("updateMateria", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@", descripcion);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public static void InsertMateria(string descripcion)
         {
             try

@@ -3,10 +3,10 @@ using Negocio;
 
 namespace Clase05
 {
-    public partial class Form1 : Form
+    public partial class FormMateria : Form
     {
         List<Materia> materiaList = new List<Materia>();
-        public Form1()
+        public FormMateria()
         {
             InitializeComponent();
         }
@@ -22,14 +22,14 @@ namespace Clase05
             try
             {
                 Materia materiaSelected = (Materia)materiaBindingSource.Current;
-                if(materiaSelected != null)
+                if (materiaSelected != null)
                 {
                     textBox1.Text = materiaSelected.descripcion.ToString();
                     label1.Text = materiaSelected.id.ToString();
                 }
                 else { textBox1.Text = string.Empty; label1.Text = string.Empty; }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -56,6 +56,15 @@ namespace Clase05
         private void button3_Click(object sender, EventArgs e)
         {
             NMateria.Insert(textBox2.Text);
+            materiaList = NMateria.Get();
+            materiaBindingSource.DataSource = materiaList;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(label1.Text);
+            string descripcion = textBox1.Text;
+            NMateria.Update(id, descripcion);
             materiaList = NMateria.Get();
             materiaBindingSource.DataSource = materiaList;
         }

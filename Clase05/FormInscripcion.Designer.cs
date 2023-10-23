@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class FormEstudiante
+    partial class FormInscripcion
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             SuspendLayout();
             // 
-            // AltaMateria
+            // FormInscripcion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(217, 157);
-            Name = "AltaMateria";
-            Text = "AltaMateria";
+            ClientSize = new Size(997, 606);
+            Name = "FormInscripcion";
+            Text = "FormInscripcion";
             ResumeLayout(false);
         }
 

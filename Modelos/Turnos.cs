@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Datos
+namespace Modelos
 {
-    public class DEstudiante
+    public enum Turnos
     {
-
+        manana = 1,
+        tarde = 2,
+        noche = 3
     }
 }

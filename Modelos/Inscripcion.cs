@@ -9,16 +9,36 @@ namespace Modelos
     public class Inscripcion
     {
         public int id { get; set; }
-        public int idEstudiante { get; set; }
-        public int idCategoria { get; set; }
-        public DateOnly fecha { get; set; }
+        Alumno alumno { get; set; }
+        Materia materia { get; set; }
+        public DateTime fecha { get; set; }
         public int turno { get; set; }
 
-        Inscripcion(int id, int idEstudiante, int idCategoria, DateOnly fecha, int turno)
+        public string? NombreMateria
+        {
+            get
+            {
+                if (materia != null)
+                    return materia.descripcion;
+                else
+                    return null;
+            }
+        }
+        public string? NombreCompletoAlumno
+        {
+            get
+            {
+                if (alumno != null)
+                    return alumno.nombre +" " + alumno.apellido;
+                else
+                    return null;
+            }          
+        }
+        public Inscripcion(int id, Alumno alumno, Materia materia, DateTime fecha, int turno)
         {
             this.id = id;
-            this.idEstudiante = idEstudiante;
-            this.idCategoria = idCategoria;
+            this.alumno = alumno;
+            this.materia = materia;
             this.fecha = fecha;
             this.turno = turno;
         }

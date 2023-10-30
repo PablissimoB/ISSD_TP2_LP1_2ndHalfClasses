@@ -16,5 +16,6 @@ namespace Modelos
             this.id = id;
             this.descripcion = descripcion;
         }
+        public Materia() { }
     }
 }

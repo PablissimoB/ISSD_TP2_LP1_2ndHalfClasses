@@ -6,6 +6,31 @@ namespace Datos
 {
     public class DMateria
     {
+        public static Materia GetById(int id)
+        {
+            Materia result = new Materia();
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("GetByIDMateria", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    result = new Materia(Convert.ToInt32(reader["id"]), reader["descripcion"].ToString());
+                }
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return result;
+        }
         public static List<Materia> GetAll()
         {
             List<Materia> result = new List<Materia>();
@@ -57,7 +82,7 @@ namespace Datos
                 SqlCommand command = new SqlCommand("updateMateria", connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddWithValue("@", descripcion);
+                command.Parameters.AddWithValue("@descripcion", descripcion);
                 connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();

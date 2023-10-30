@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descripcionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            materiaBindingSource = new BindingSource(this.components);
+            materiaBindingSource = new BindingSource(components);
             textBox1 = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -57,7 +57,7 @@
             dataGridView1.RowTemplate.Height = 37;
             dataGridView1.Size = new Size(732, 260);
             dataGridView1.TabIndex = 0;
-            dataGridView1.SelectionChanged += this.dataGridView1_SelectionChanged;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -115,7 +115,7 @@
             button1.TabIndex = 4;
             button1.Text = "Modificar";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += this.button1_Click;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -126,7 +126,7 @@
             button2.TabIndex = 5;
             button2.Text = "Baja";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += this.button2_Click;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -137,7 +137,7 @@
             button3.TabIndex = 6;
             button3.Text = "Alta";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += this.button3_Click;
+            button3.Click += button3_Click;
             // 
             // textBox2
             // 
@@ -147,7 +147,7 @@
             textBox2.Size = new Size(589, 35);
             textBox2.TabIndex = 7;
             // 
-            // Form1
+            // FormMateria
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -161,9 +161,9 @@
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Form1";
+            Name = "FormMateria";
             Text = "ABM Materias";
-            Load += this.Form1_Load;
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)materiaBindingSource).EndInit();
             ResumeLayout(false);

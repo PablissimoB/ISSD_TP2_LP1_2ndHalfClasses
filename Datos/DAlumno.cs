@@ -10,6 +10,31 @@ namespace Datos
 {
     public class DAlumno
     {
+        public static Alumno GetById(int id)
+        {
+            Alumno result = new Alumno();
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("GetByIDAlumno", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    result = new Alumno(Convert.ToInt32(reader["id"]), reader["nombre"].ToString(), reader["apellido"].ToString());
+                }
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return result;
+        }
         public static List<Alumno> GetAll()
         {
             var result = new List<Alumno>(); //declaracion implicita

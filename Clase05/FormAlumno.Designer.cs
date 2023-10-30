@@ -51,11 +51,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, apellidoDataGridViewTextBoxColumn });
             dataGridView1.DataSource = bindingSource1;
-            dataGridView1.Location = new Point(112, 259);
+            dataGridView1.Location = new Point(174, 213);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 72;
             dataGridView1.RowTemplate.Height = 37;
-            dataGridView1.Size = new Size(604, 277);
+            dataGridView1.Size = new Size(542, 323);
             dataGridView1.TabIndex = 0;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 

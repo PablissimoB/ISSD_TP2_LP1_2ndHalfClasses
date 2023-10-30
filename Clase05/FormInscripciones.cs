@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using Datos;
+using Modelos;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,45 @@ namespace Presentacion
             int turno = (int)comboBox3.SelectedValue;
 
             NInscripcion.Insert(idMateria, idAlumno, turno, fecha);
+            lista = NInscripcion.Get();
+            bindingSource1.DataSource = lista;
+            label4.Text = $"Inscripcion lista";
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lista.Count > 0)
+                {
+                    Inscripcion inscripcion = (Inscripcion)bindingSource1.Current;
+
+                    if (inscripcion != null)
+                    {
+                        label5.Text = inscripcion.id.ToString();
+                        comboBox1.SelectedItem = inscripcion.idMateria;
+                        comboBox2.SelectedItem = inscripcion.idAlumno;
+                        comboBox3.SelectedItem = inscripcion.turno;
+                        dateTimePicker1.Text = inscripcion.fecha.ToString();
+                    }
+                    else { }
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime fecha = dateTimePicker1.Value;
+            int id = int.Parse(label5.Text);
+            int idMateria = (int)comboBox1.SelectedValue;
+            int idAlumno = (int)comboBox2.SelectedValue;
+            int turno = (int)comboBox3.SelectedValue;
+            NInscripcion.Update(idMateria, idAlumno, turno, fecha, id);
             lista = NInscripcion.Get();
             bindingSource1.DataSource = lista;
             label4.Text = $"Inscripcion lista";

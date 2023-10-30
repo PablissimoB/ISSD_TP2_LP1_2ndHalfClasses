@@ -64,6 +64,28 @@ namespace Datos
                 throw;
             }
         }
+        public static void UpdateInscripcion(int idMateria, int idAlumno, int turno, DateTime fechaInscripcion, int id)
+        {
+            try
+            {
+                string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                SqlConnection connection = new SqlConnection(conexion);
+                SqlCommand command = new SqlCommand("UpdateInscripcion", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@idMateria", idMateria);
+                command.Parameters.AddWithValue("@idAlumno", idAlumno);
+                command.Parameters.AddWithValue("@turno", turno);
+                command.Parameters.AddWithValue("@fechaInscripcion", fechaInscripcion);
+                command.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 
 }

@@ -57,6 +57,7 @@
             dataGridView1.RowTemplate.Height = 37;
             dataGridView1.Size = new Size(732, 260);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // idDataGridViewTextBoxColumn

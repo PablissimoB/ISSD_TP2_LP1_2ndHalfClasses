@@ -33,5 +33,16 @@ namespace Negocio
                 throw;
             }
         }
+        public static void Update(int idMateria, int idAlumno, int turno, DateTime fechaInscripcion, int id)
+        {
+            try
+            {
+                DInscripcion.UpdateInscripcion(idMateria, idAlumno, turno, fechaInscripcion, id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

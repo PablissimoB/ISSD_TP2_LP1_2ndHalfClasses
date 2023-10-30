@@ -21,7 +21,7 @@ namespace Clase05
         {
             try
             {
-                if(materiaList.Count > 0)
+                if (materiaList.Count > 0)
                 {
                     Materia materiaSelected = (Materia)materiaBindingSource.Current;
                     if (materiaSelected != null)
@@ -71,6 +71,11 @@ namespace Clase05
             NMateria.Update(id, descripcion);
             materiaList = NMateria.Get();
             materiaBindingSource.DataSource = materiaList;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -34,6 +34,26 @@ namespace Modelos
                     return null;
             }          
         }
+        public int? idAlumno
+        {
+            get
+            {
+                if (alumno != null)
+                    return alumno.id;
+                else
+                    return null;
+            }
+        }
+        public int? idMateria
+        {
+            get
+            {
+                if (materia != null)
+                    return materia.id;
+                else
+                    return null;
+            }
+        }
         public Inscripcion(int id, Alumno alumno, Materia materia, DateTime fecha, int turno)
         {
             this.id = id;

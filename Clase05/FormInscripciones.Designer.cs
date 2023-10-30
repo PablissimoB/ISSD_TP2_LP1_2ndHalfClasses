@@ -40,14 +40,15 @@
             label3 = new Label();
             button1 = new Button();
             dataGridView1 = new DataGridView();
-            bindingSource1 = new BindingSource(components);
-            button2 = new Button();
-            label4 = new Label();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             NombreMateria = new DataGridViewTextBoxColumn();
             NombreCompletoAlumno = new DataGridViewTextBoxColumn();
             fechaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             turnoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            bindingSource1 = new BindingSource(components);
+            button2 = new Button();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)materiaBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -148,28 +149,7 @@
             dataGridView1.RowTemplate.Height = 37;
             dataGridView1.Size = new Size(958, 262);
             dataGridView1.TabIndex = 8;
-            // 
-            // bindingSource1
-            // 
-            bindingSource1.DataSource = typeof(Modelos.Inscripcion);
-            // 
-            // button2
-            // 
-            button2.Location = new Point(924, 137);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 40);
-            button2.TabIndex = 9;
-            button2.Text = "Baja";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(46, 184);
-            label4.Name = "label4";
-            label4.Size = new Size(68, 30);
-            label4.TabIndex = 10;
-            label4.Text = "label4";
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -213,11 +193,44 @@
             turnoDataGridViewTextBoxColumn.Name = "turnoDataGridViewTextBoxColumn";
             turnoDataGridViewTextBoxColumn.Width = 175;
             // 
+            // bindingSource1
+            // 
+            bindingSource1.DataSource = typeof(Modelos.Inscripcion);
+            // 
+            // button2
+            // 
+            button2.Location = new Point(924, 137);
+            button2.Name = "button2";
+            button2.Size = new Size(131, 40);
+            button2.TabIndex = 9;
+            button2.Text = "Modificar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(46, 184);
+            label4.Name = "label4";
+            label4.Size = new Size(68, 30);
+            label4.TabIndex = 10;
+            label4.Text = "label4";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(45, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 30);
+            label5.TabIndex = 11;
+            label5.Text = "label5";
+            // 
             // FormInscripciones
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1067, 691);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
@@ -263,5 +276,6 @@
         private DataGridViewTextBoxColumn NombreCompletoAlumno;
         private DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn turnoDataGridViewTextBoxColumn;
+        private Label label5;
     }
 }

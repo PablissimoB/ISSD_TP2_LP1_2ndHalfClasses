@@ -21,13 +21,17 @@ namespace Clase05
         {
             try
             {
-                Materia materiaSelected = (Materia)materiaBindingSource.Current;
-                if (materiaSelected != null)
+                if(materiaList.Count > 0)
                 {
-                    textBox1.Text = materiaSelected.descripcion.ToString();
-                    label1.Text = materiaSelected.id.ToString();
+                    Materia materiaSelected = (Materia)materiaBindingSource.Current;
+                    if (materiaSelected != null)
+                    {
+                        textBox1.Text = materiaSelected.descripcion.ToString();
+                        label1.Text = materiaSelected.id.ToString();
+                    }
+                    else { textBox1.Text = string.Empty; label1.Text = string.Empty; }
+
                 }
-                else { textBox1.Text = string.Empty; label1.Text = string.Empty; }
             }
             catch (Exception)
             {

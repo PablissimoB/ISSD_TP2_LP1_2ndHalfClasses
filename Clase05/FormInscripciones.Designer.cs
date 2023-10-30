@@ -40,14 +40,14 @@
             label3 = new Label();
             button1 = new Button();
             dataGridView1 = new DataGridView();
+            bindingSource1 = new BindingSource(components);
+            button2 = new Button();
+            label4 = new Label();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             NombreMateria = new DataGridViewTextBoxColumn();
             NombreCompletoAlumno = new DataGridViewTextBoxColumn();
             fechaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             turnoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            bindingSource1 = new BindingSource(components);
-            button2 = new Button();
-            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)materiaBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -149,6 +149,28 @@
             dataGridView1.Size = new Size(958, 262);
             dataGridView1.TabIndex = 8;
             // 
+            // bindingSource1
+            // 
+            bindingSource1.DataSource = typeof(Modelos.Inscripcion);
+            // 
+            // button2
+            // 
+            button2.Location = new Point(924, 137);
+            button2.Name = "button2";
+            button2.Size = new Size(131, 40);
+            button2.TabIndex = 9;
+            button2.Text = "Baja";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(46, 184);
+            label4.Name = "label4";
+            label4.Size = new Size(68, 30);
+            label4.TabIndex = 10;
+            label4.Text = "label4";
+            // 
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -190,28 +212,6 @@
             turnoDataGridViewTextBoxColumn.MinimumWidth = 9;
             turnoDataGridViewTextBoxColumn.Name = "turnoDataGridViewTextBoxColumn";
             turnoDataGridViewTextBoxColumn.Width = 175;
-            // 
-            // bindingSource1
-            // 
-            bindingSource1.DataSource = typeof(Modelos.Inscripcion);
-            // 
-            // button2
-            // 
-            button2.Location = new Point(924, 137);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 40);
-            button2.TabIndex = 9;
-            button2.Text = "Baja";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(46, 184);
-            label4.Name = "label4";
-            label4.Size = new Size(68, 30);
-            label4.TabIndex = 10;
-            label4.Text = "label4";
             // 
             // FormInscripciones
             // 

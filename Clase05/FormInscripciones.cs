@@ -52,7 +52,7 @@ namespace Presentacion
             CargarAlumnos();
             CargarMaterias();
             CargarTurnos();
-            lista = NInscripcion.Get().ToList();
+            lista = NInscripcion.Get();
 
             bindingSource1.DataSource = lista;
         }

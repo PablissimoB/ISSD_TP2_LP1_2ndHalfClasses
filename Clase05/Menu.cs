@@ -40,5 +40,11 @@ namespace Presentacion
             FormInscripciones form = new FormInscripciones();
             form.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Reporte.Form1 form = new Reporte.Form1();
+            form.Show();
+        }
     }
 }
